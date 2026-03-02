@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
-  username: { type: String, required: true, unqiue: true },
-  password: { tyoe: String, required: true },
-});
-
-module.exports = mongoose.model("User", userSchema);
+const todoSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    completed: { type: Boolean, default: false },
+    category: { type: String, default: "General" },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+  });
+  
+  module.exports = mongoose.model("Todo", todoSchema);
