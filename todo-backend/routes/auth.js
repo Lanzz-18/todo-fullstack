@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bycryptjs");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const User = require("..models/User.js");
+const User = require("../models/User.js");
 
 // Register
 router.post("/register", async (req, res) => {
@@ -13,7 +13,7 @@ router.post("/register", async (req, res) => {
     await user.save();
     res.json({ message: "User created successfully" });
   } catch (err) {
-    res.status(400).json({ message: "Username already exists " });
+    res.status(400).json({ message: err.message });
   }
 });
 
@@ -26,7 +26,7 @@ router.post("/login", async (req, res) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).jsom({
+      return res.status(400).json({
         message: "Invalid password",
       });
     }
