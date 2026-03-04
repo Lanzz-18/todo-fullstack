@@ -1,0 +1,128 @@
+* {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background:linear-gradient(to bottom right, rgb(255, 93, 255), rgb(255, 75, 183),  rgb(255, 0, 255));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.539);
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    color: white;
+    padding: 32px;
+    min-width: 300px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.auth-container input{
+    padding: 10px 14px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: 0.3s ease;
+    width: 100%;
+}
+
+.auth-container input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.auth-container input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.auth-container input:hover{
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.501);
+    color: rgb(0, 0, 0);rgba(243, 243, 243, 0.342);
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.605);
+    border-radius: 2px;
+    transition: 0.3s ease-in;
+}
+
+.auth-container h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.auth-container button {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: 100%;
+    margin-top: 4px;
+}
+
+.auth-container button:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.auth-container p{
+     csolor: rgba(255, 255, 255, 0.75);
+    font-size: 0.8rem;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.auth-container p:hover{
+    color: white;
+    text-decoration: underline;
+    text-shadow: 0 0 3px white;
+    transition: 0.2s ease-in-out;
+}
+/*
+<div className="auth-container">
+    <h1>{isRegistering ? "Register" : "Login"}</h1>
+    <input
+        type="text"
+        placeholder="Username"
+        onChange={(e) => setUsername(e.target.value)}
+        value={username}
+    />
+    <input
+        type="password"
+        placeholder="Password"
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
+    />
+    {isRegistering ? (
+        <>
+        <button onClick={handleRegister}>Register</button>
+        <p onClick={() => setIsRegistering(false)}>Already have an account? Login</p>
+        </>
+    ) : (
+        <>
+        <button onClick={handleLogin}>Login</button>
+        <p onClick={() => setIsRegistering(true)}>Don't have an account? Register</p>
+        </>
+    )}
+</div>
+*/
