@@ -96,7 +96,7 @@ function App() {
   return (
     // Add drop down for type
     <>
-      <button onClick={handleLogout}>Logout</button>
+      <button id="logout" onClick={handleLogout}>Logout</button>
       <div className="search-group">
         <input
           type="text"
