@@ -20,6 +20,7 @@ A full-stack Todo application with a React frontend and a Node.js/Express REST A
 - Dev tools -> nodemon, dotenv
 
 # Architecture
+```
 todo-fullstack/
 ├── todo-backend/
 │   ├── config/
@@ -47,6 +48,7 @@ todo-fullstack/
         │   ├── components/     # TodoItem, TodoForm, Navbar, etc
         │   └── pages/          # Login, Register, Dashboard
         └── package.json
+```
 
 # Quick Start
 **Prerequisites**
@@ -56,9 +58,12 @@ todo-fullstack/
 
 
 **1. Clone the repo**
+
 bashgit clone https://github.com/Lanzz-18/todo-fullstack.git
 cd todo-fullstack
+
 **2. Set up the backend**
+
 bashcd todo-backend
 npm install
 cp .env.example .env
@@ -67,7 +72,7 @@ envPORT=3000
 MONGO_URI=mongodb://localhost:/todo-app
 CLIENT_URL=http://localhost:
 
-**Generate with: node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"**
+`Generate with: node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"`
 JWT_ACCESS_SECRET=your_64_char_random_string
 JWT_REFRESH_SECRET=your_different_64_char_random_string
 
@@ -80,6 +85,7 @@ bashnpm run dev     # nodemon — auto-restarts on file changes
 `Server runs at http://localhost:`
 
 **3. Set up the frontend**
+
 bashcd ../todo-frontend/todo-frontend
 npm install
 npm run dev
