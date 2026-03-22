@@ -107,7 +107,7 @@ export const deleteTodo = async (id) => {
 }
 
 export const toggleTodo = async (id) => {
-    const res = await fetch(`${BASE_URL}/todos/${id}`, {
+    const res = await authFetch(`${BASE_URL}/todos/${id}`, {
         method: "PATCH",
     })
     if (!res) return null
