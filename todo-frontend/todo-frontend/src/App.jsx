@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { login, register, addTodos, getTodos, deleteTodo, toggleTodo} from './api'
+import { login, register, logout, addTodos, getTodos, deleteTodo, toggleTodo} from './api'
 import './App.css'
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   const [categoryInput, setCategoryInput] = useState("")
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const [token, setToken] = useState(localStorage.getItem("token"))
+  const [token, setToken] = useState(null)
   const [isRegistering, setIsRegistering] = useState(false)
  
   useEffect(() => {
@@ -24,9 +24,8 @@ function App() {
 
   const handleLogin = async () => {
     const data = await login(username, password)
-    if (data.token) {
-      localStorage.setItem("token", data.token)
-      setToken(data.token)
+    if (data.accessToken) {
+      setToken(true)
     } else {
       alert(data.message)
     }
@@ -52,12 +51,14 @@ function App() {
   }
 
   const handleToggle = async (id) => {
+    console.log('token at toggle time:', window.__accessToken)
     const updated = await toggleTodo(id)
+    if(!updated) return
     setTodos(todos.map(todo => todo._id === id ? updated : todo))
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem("token")
+  const handleLogout = async () => {
+    await logout()
     setToken(null)
     setTodos([])
   }

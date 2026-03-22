@@ -1,8 +1,6 @@
 require('dotenv').config(); // Load environment variables from .env file (process.env.PORT, process.env.MONGO_URI, etc)
 
-
 // If any of these are missing, crash immediately with a clear message
-
 const REQUIRED = [
     'MONGO_URI',
     'JWT_ACCESS_SECRET',
@@ -19,7 +17,7 @@ for(const key of REQUIRED) {
 }
 
 const config = {
-  port:      process.env.PORT      || 3000,
+  port:      process.env.PORT      || 5000,
   nodeEnv:   process.env.NODE_ENV  || 'development',
   mongoUri:  process.env.MONGO_URI,
   clientUrl: process.env.CLIENT_URL || 'http://localhost:5173',
