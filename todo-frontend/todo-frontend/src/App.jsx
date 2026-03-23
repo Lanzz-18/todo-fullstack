@@ -51,7 +51,6 @@ function App() {
   }
 
   const handleToggle = async (id) => {
-    console.log('token at toggle time:', window.__accessToken)
     const updated = await toggleTodo(id)
     if(!updated) return
     setTodos(todos.map(todo => todo._id === id ? updated : todo))
